@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-sm-8">
     	<div class="form-group">
-    		<textarea class="form-control" rows="10" cols="5" name="inputText" required></textarea>
+    		<textarea class="form-control" rows="10" cols="5" name="inputText" id="inText"  placeholder="Type a text" required></textarea>
     	</div>
     </div>
     <div class="col-sm-4">
@@ -16,13 +16,13 @@
         <div>
         <div class="input-group mb-3">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="en" name="lang[]" aria-label="Checkbox for following text input">
+            <input class="form-check-input mt-0" type="checkbox" value="en" name="lang[]" aria-label="Checkbox for following text input" checked>
           </div>
           <input type="text" class="form-control" aria-label="Text input with checkbox" value="English">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="sp" name="lang[]" aria-label="Checkbox for following text input">
+            <input class="form-check-input mt-0" type="checkbox" value="es" name="lang[]" aria-label="Checkbox for following text input">
           </div>
           <input type="text" class="form-control" aria-label="Text input with checkbox" value="Spanish">
         </div>
@@ -34,25 +34,21 @@
         </div>
     </div>
   </div>
-</div>
-<div class="container text-center under">
-  <div class="row">
-    <div class="col-sm-8">
-    	<div class="form-group">
-    		<textarea class="form-control" rows="10" cols="5" name="outputText">{{ data.text }}</textarea>
-    	</div>
+  <div class="under">
+    {% if messages %}
+      {% include 'includes/_messages.html' %}
+    {% endif %}
+  </div>
+  <div class="col-sm-8 under">
+    <div class="form-group">
+      <textarea class="form-control" rows="10" name="outputText" id="outText" placeholder="Output here">{{ response }}</textarea>
     </div>
   </div>
-  <div class="container text-center under">
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary col-sm-8">Translate</button>
-      </div>
+  <div class="col-sm-8 under">
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary col-sm-8">Translate</button>
     </div>
   </div>
-
-
   </form>
 </div>
 {% endblock content %}
