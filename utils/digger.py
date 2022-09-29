@@ -18,13 +18,17 @@ def get_media_folder():
 	return path_dir[media_dir]
 
 
+def get_audio_file(file):
+	file = f"{file}.mp3"
+	media_folder = get_media_folder()
+	media_path = os.path.join(BASE, media_folder)
+	audio = os.path.join(media_path, file)
+	return audio
+
+
 def delete_file(file):
 	file = f"{file}.mp3"
 	media_folder = get_media_folder()
 	media_path = os.path.join(BASE, media_folder)
 	media = os.path.join(media_path, file)
 	os.remove(media)
-
-
-if __name__ == '__main__':
-	delete()
