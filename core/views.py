@@ -5,7 +5,7 @@ from gtts import gTTS
 import os
 from pathlib import Path
 import uuid
-from utils.digger import delete_file
+from utils.digger import delete_file, get_audio_file, get_media_folder
 
 
 def index(request):
@@ -23,7 +23,7 @@ def index(request):
 		delete_file(request.session['id'])
 		del request.session['data']
 		del request.session['id']
-	except KeyError:
+	except (KeyError, FileNotFoundError):
 		pass
 
 	translator = Translator()
@@ -45,10 +45,18 @@ def index(request):
 			request.session['data'] = data.text
 			request.session['id'] = f"{key}"
 
+			# getting audio file
+			# audio = get_audio_file(request.session['id'])
+			audio = f"{request.session['id']}.mp3"
+
 			# accessing session
 			response = request.session.get('data')
 			
-			context = {'response': response}
+			context = {
+				'input': input_text,
+				'response': response,
+				'audio': audio,
+			}
 
 			return render(request, 'core/index.html', context)
 
