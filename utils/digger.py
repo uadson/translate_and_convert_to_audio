@@ -7,6 +7,8 @@ BASE = Path(__file__).resolve().parent.parent
 
 def search():
 	path_dir = os.listdir(BASE)
+	if not 'media' in path_dir:
+		os.mkdir('media')
 	for i in range(len(path_dir)):
 		if path_dir[i] == 'media':
 			return i
@@ -32,3 +34,11 @@ def delete_file(file):
 	media_path = os.path.join(BASE, media_folder)
 	media = os.path.join(media_path, file)
 	os.remove(media)
+
+
+def clear_form():
+	media_folder = get_media_folder()
+	media_path = os.path.join(BASE, media_folder)
+	media = os.listdir(media_path)
+	audio = os.path.join(media_path, media[0])
+	os.remove(audio)

@@ -5,7 +5,7 @@ from gtts import gTTS
 import os
 from pathlib import Path
 import uuid
-from utils.digger import delete_file, get_audio_file, get_media_folder
+from utils.digger import delete_file, get_audio_file, get_media_folder, clear_form
 
 
 def index(request):
@@ -66,3 +66,8 @@ def index(request):
 			'Select only one language'
 		)
 		return redirect('core:index')
+
+
+def clean(request):
+	clear_form()
+	return redirect('core:index')
