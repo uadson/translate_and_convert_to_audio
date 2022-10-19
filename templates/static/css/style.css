@@ -1,9 +1,37 @@
+.input-text {
+	position: relative;
+	height: 30px;
+}
+
+.output-text {
+	position: relative;
+	height: 30px;
+}
+
+.icon-close {
+	position: absolute;
+	background: none;
+	width: 16px;
+	height: 16px;
+	right: 6px;
+	bottom: 0px;
+}
+
+.icon-copy {
+	position: absolute;
+	background: none;
+	width: 16px;
+	height: 16px;
+	right: 6px;
+	bottom: 0px;
+}
+
 .main {
 	margin-top: 5%;
 }
 
 .under {
-	margin-top: 6%;
+	margin-top: 10%;
 }
 
 .select {

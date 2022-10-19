@@ -5,8 +5,9 @@
     {% csrf_token %}
   <div class="row">
     <div class="col-sm-8">
-    	<div class="form-group">
-    		<textarea class="form-control" rows="10" cols="5" name="inputText" id="inText"  placeholder="Type a text" required>{% if input %}{{ input }}{% endif %}</textarea>
+    	<div class="form-group input-text">
+    		<textarea class="form-control" rows="10" cols="5" name="inputText" id="inText" placeholder="Type a text" required>{% if input %}{{ input }}{% endif %}</textarea>
+        <span><a href="{% url 'core:clean' %}" id="clear" onclick="clearFields()"><img class="icon-close" src="https://img.icons8.com/material-outlined/18/000000/delete-sign.png"/></a></span>
     	</div>
     </div>
     <div class="col-sm-4">
@@ -39,9 +40,10 @@
       {% include 'includes/_messages.html' %}
     {% endif %}
   </div>
-  <div class="col-sm-8 under">
-    <div class="form-group">
-      <textarea class="form-control" rows="10" name="outputText" id="outText" placeholder="Output here">{{ response }}</textarea>
+  <div class="col-sm-8">
+    <div class="form-group output-text under">
+      <textarea class="form-control" rows="10" name="outputText" id="outText" placeholder="Output here" readonly>{{ response }}</textarea>
+      <span><a type="button" id="copyText" onclick="copyText()"><img class="icon-copy" src="https://img.icons8.com/ios/25/000000/copy.png"/></a></span>
     </div>
   </div>
   <div class="col-sm-4 under">
@@ -51,17 +53,10 @@
       </audio>
     </div>
     <div class="form-group under">
-      <a href="/media/{{ audio }}" class="btn btn-primary" download><img src="https://img.icons8.com/sf-ultralight/25/000000/download.png"/>Download</a>
-    </div>
-  </div>
-  <div class="col-sm-4 under">
-    <div class="form-group">
-      <a href="{% url 'core:clean' %}" type="button" id="clear" class="btn btn btn-primary col-sm-8" onclick="clearFields()">Clear</a>
-    </div>
-  </div>
-  <div class="col-sm-4 under">
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary col-sm-8">Translate</button>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="/media/{{ audio }}" class="btn btn-primary" download><img src="https://img.icons8.com/sf-ultralight/25/000000/download.png"/>Download</a><br>
+        <button type="submit" class="btn btn-primary btn-transl"><img src="https://img.icons8.com/external-xnimrodx-lineal-xnimrodx/25/000000/external-translate-discussion-xnimrodx-lineal-xnimrodx.png"/>Translate</button>
+      </div>
     </div>
   </div>
   </div>

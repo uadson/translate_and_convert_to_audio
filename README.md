@@ -74,5 +74,3 @@ Após o clique no botão "Translate", os dados do formulário (template) são co
 8 - os dados retornados para o template são: os dados coletados do formulário (texto digitado pelo usuário), o texto traduzido através de uma session - response = request.session.get('data') e o audio, identificado através da string "request.session['id'].mp3".
 
 Obs.: o clique em "Translate", inicia uma verificação, para que não haja mais de um arquivo de áudio no diretório, e deleta todas sessions existentes, gerando novas sessions com as novas requisições.
-
-9 - O botão "Clear", limpa os campos do formulário e exclui o arquivo de áudio existente.
