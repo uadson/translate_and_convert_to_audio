@@ -1,4 +1,4 @@
-### Tradutor e Conversor de Texto em Áudio - [english version here](####-ENGLISH-VERSION)
+### Tradutor e Conversor de Texto em Áudio - [english version here](english-version)
 
 
 Esta é uma aplicação que tem como objetivo a tradução de textos entre os seguintes idiomas (por enquanto):
