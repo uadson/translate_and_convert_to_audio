@@ -1,4 +1,4 @@
-### Tradutor e Conversor de Texto em Áudio
+### Tradutor e Conversor de Texto em Áudio - [english version here](####-ENGLISH-VERSION)
 
 
 Esta é uma aplicação que tem como objetivo a tradução de textos entre os seguintes idiomas (por enquanto):
@@ -72,5 +72,74 @@ Após o clique no botão "Translate", os dados do formulário (template) são co
 7 - uma variável recebe uma string (nome do áudio) para ser retornada no template - audio = f"{request.session['id']}.mp3";
 
 8 - os dados retornados para o template são: os dados coletados do formulário (texto digitado pelo usuário), o texto traduzido através de uma session - response = request.session.get('data') e o audio, identificado através da string "request.session['id'].mp3".
+
+#### ENGLISH VERSION
+
+Text to Audio Translator and Converter
+
+This is an application that aims to translate texts between the following languages ​​(for now):
+
+Portuguese, Spanish and English
+
+The translated text is converted into an audio file that can be played by the media player in the browser and or downloaded by the user.
+Features (user part):
+
+1 - Field to type the text which will be translated (input).
+
+2 - By default the English language is selected.
+
+3 - In the field below (output) the translation of the typed text will be displayed, after clicking on the "Translate" button.
+
+4 - In addition to the translation, an audio file will be generated that can be played in the media player next to the answer field (translation) and that can be downloaded.
+
+5 - The "Clear" button, clears the fields for the user to enter new data. The use of the button is optional, as the text entered can be subscripted.
+Features (backend part):
+dependencies
+
+The first step is to isolate the project's dependencies by creating a virtual environment, just run:
+
+python -m venv .venv
+
+obs.: the name given to the virtual environment was .venv but it can be any other.
+
+To install all the dependencies used in the project just run:
+
+pip install -r requirements.txt
+
+Below are listed independently each library and framework, in case you want to install one at a time.
+
+The python framework used is Django in its latest version. To install the framework:
+
+pip install django
+
+To translate the texts, it is necessary to use the googletrans library in its version 3.1.0a0:
+
+pip install googletrans==3.1.0a0
+
+And finally, for converting texts into audio, the Google Text to Speech API:
+
+pip install gTTS
+
+program execution
+
+After clicking the "Translate" button, the form data (template) is collected through the request and the following processes are performed:
+
+1 - a session is started - django.sessions;
+
+2 - a random hexadecimal string is generated;
+
+3 - a variable (data) receives the generated translation;
+
+4 - then another variable (audio) receives the translation audio;
+
+5 - the audio is saved in .mp3 format in a media identification directory, and the name of the audio file will be the hexadecimal string generated as stated in item 2;
+
+6 - one django session receives the translation data - request.session['data'] and another receives the hexadecimal string as the id - request.session['id'];
+
+7 - a variable receives a string (audio name) to be returned in the template - audio = f"{request.session['id']}.mp3";
+
+8 - the data returned to the template are: the data collected from the form (text typed by the user), the text translated through a session - response = request.session.get('data') and the audio, identified through the string "request.session['id'].mp3".
+
+Note: clicking on "Translate", starts a verification, so that there is not more than one audio file in the directory, and deletes all existing sessions, generating new sessions with the new requests.
 
 Obs.: o clique em "Translate", inicia uma verificação, para que não haja mais de um arquivo de áudio no diretório, e deleta todas sessions existentes, gerando novas sessions com as novas requisições.
