@@ -1,4 +1,4 @@
-### Tradutor e Conversor de Texto em Áudio - [english version here](english-version)
+### Tradutor e Conversor de Texto em Áudio - [english version here](#english-version)
 
 
 Esta é uma aplicação que tem como objetivo a tradução de textos entre os seguintes idiomas (por enquanto):
@@ -98,27 +98,27 @@ dependencies
 
 The first step is to isolate the project's dependencies by creating a virtual environment, just run:
 
-python -m venv .venv
+	python -m venv .venv
 
 obs.: the name given to the virtual environment was .venv but it can be any other.
 
 To install all the dependencies used in the project just run:
 
-pip install -r requirements.txt
+	pip install -r requirements.txt
 
 Below are listed independently each library and framework, in case you want to install one at a time.
 
 The python framework used is Django in its latest version. To install the framework:
 
-pip install django
+	pip install django
 
 To translate the texts, it is necessary to use the googletrans library in its version 3.1.0a0:
 
-pip install googletrans==3.1.0a0
+	pip install googletrans==3.1.0a0
 
 And finally, for converting texts into audio, the Google Text to Speech API:
 
-pip install gTTS
+	pip install gTTS
 
 program execution
 
